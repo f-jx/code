@@ -1,0 +1,1 @@
+    // delete[] myBoxArray; // Delete array

@@ -1,0 +1,23 @@
+修改OperateData.php，Plot.php中的用户名，数据库名，密码
+自行修改index.html样式
+
+将homework3文件夹整个复制到自己的服务器工作目录下
+进入homework3目录
+    cd homework3
+    cp OperateDataResult.php OperateDataResult.txt
+    cp Plot.php Plot.txt
+
+登录mysql
+    mysql -u 2018balabala -p
+输入你的密码
+    ****
+    use 你的数据库;
+    source bioinfo_hw1.sql;
+退出mysql
+    quit;
+
+返回上一级目录
+    cd ..
+    chmod -R 777 homework3
+
+配置完成，打开网页测试...

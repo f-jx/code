@@ -1,0 +1,171 @@
+理解变量：变量本身没有数据类型，也可以看作是一个指针
+    a = "w3cschool"
+    ""是string类型，但a仅仅是一个对象的引用
+变量生命周期/作用域
+    局部变量只能作用于函数内部，全局变量定义于函数外部
+    要给全局变量在一个函数里赋值，必须使用global语句。
+命名空间：
+    变量是拥有匹配对象的名字（标识符）。
+    命名空间是一个包含了变量名称们（键）和它们各自相应的对象们（值）的字典。
+对象的可更改与否：
+    不可变类型：strings，tuples，numbers
+        a = 5; a = 10; 这里只是新生成了一个对象10,再让a指向它
+    可变类型：list，dict
+        list1[i] = ''; 这里list1的内容被改变了
+
+循环语句的特殊指令
+    break
+    continue
+    pass（空语句）
+用于删除对象，包括变量，列表等
+    del var1, var2
+complex类型：a + bj
+数字类型转换：
+    int(x [,base ])         将x转换为一个整数  
+    long(x [,base ])        将x转换为一个长整数  
+    float(x )               将x转换到一个浮点数  
+    complex(real [,imag ])  创建一个复数  
+    str(x )                 将对象 x 转换为字符串  
+    repr(x )                将对象 x 转换为表达式字符串  
+    eval(str )              用来计算在字符串中的有效Python表达式,并返回一个对象  
+    tuple(s )               将序列 s 转换为一个元组  
+    list(s )                将序列 s 转换为一个列表  
+    chr(x )                 将一个整数转换为一个字符  
+    unichr(x )              将一个整数转换为Unicode字符  
+    ord(x )                 将一个字符转换为它的整数值  
+    hex(x )                 将一个整数转换为一个十六进制字符串  
+    oct(x )                 将一个整数转换为一个八进制字符串 
+
+可以使用math包，使用复杂数学函数
+    import math, cmath
+    dir(math)
+字符串运算符：%在打印的语句中插入格式化变量
+    + 
+    * 
+    [] 
+    [:] 
+    not in 
+    %
+    灵活运用字符串内建函数会有奇效string.XXX()
+三引号输出用在html是会很方便
+列表list的用法：字符串也是一种list
+    list1 = [ , , ]
+    list1[:]
+    del list[i]
+    append
+list运算
+    len(list1) 
+    + 
+    * 
+    in 
+    for x in []
+list也有很多内建函数，类似字符串的，如
+    list.insert(index, obj)
+元组的元素值不能改变，但两个元组可以进行连接等运算
+    tup1 = ( , , )
+字典，键值对，键是必须的，这里的键类似list的下标，是一种索引
+    dict1 = {key:value, }
+    字典的键必须不可变，所以能用数、字符串、元组，但不能用list
+    字典也有内建函数，dict.clear() 清除字典所有条目
+集合，就是一个只含key不带value的字典
+    set1 = {key1, key2, }
+    set1 = set(key1, key2, )
+
+时间模块
+    import time
+    print(time.localtime(time.time()))
+    打印格式化的时间
+    print(time.asctime(time.localtime(time.time())))
+    打印格式化的日期
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())) 
+日历模块
+    import calendar
+    打印日历
+    print(calendar.month(2019, 12))
+
+python函数
+    def functionname( parameters = 默认值 ):
+        function_suite
+        return [expression]
+    return对于函数有点像break对于循环语句，会直接退出当前函数
+    函数的参数默认值可以直接写在函数参数中
+    调用函数时传入的参数也可以当场赋值
+        functionname( parameters = 赋值 )
+    不定长参数：若定义函数时不确定传入参数个数，定义时加*号
+        def printinfo( arg1, *vartuple ):
+        # 打印任何传入的参数
+        print arg1
+        for var in vartuple:
+            print var
+        return;
+        
+        # 调用printinfo 函数
+        printinfo( 10 );
+        printinfo( 70, 60, 50 );
+
+python模块
+    简言之，模块就是一个保存了Python代码的文件
+    模块将相关的python代码放在一起
+    其中定义函数，类和变量。也能包含可执行的代码。
+python模块的调用：
+    import XX, XX 会调用整个模块
+    from XX import XX, XX 只会调用模块中的指定部分到当前命名空间中
+python搜索模块的顺序：
+    当前目录
+    shell中设置的pythonpath
+    默认路径：/usr/local/lib/python/
+用 dir() 查看模块的内容：
+    import math
+    dir(math)
+    ['__doc__', '__loader__', '__name__', '__package__', '__spec__', 
+    'acos', 'acosh', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 
+    'copysign', 'cos', 'cosh', 'degrees', 'e', 'erf', 'erfc', 'exp', 
+    'expm1', 'fabs', 'factorial', 'floor', 'fmod', 'frexp', 'fsum', 'gamma', 
+    'gcd', 'hypot', 'inf', 'isclose', 'isfinite', 'isinf', 'isnan', 'ldexp', 
+    'lgamma', 'log', 'log10', 'log1p', 'log2', 'modf', 'nan', 'pi', 'pow', 
+    'radians', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'trunc']
+    __name__指向模块名字，__file__指向模块的导入文件名
+python中的包：包是一个分层次的文件目录结构，包括模块和子包
+    例如目录  phone/下有pots.py, G3.py, isdn.py模块文件
+    你需要一次性调用分散在这几个模块文件中的一些函数
+    只需要在目录下创建__init__.py文件，写入语句：
+        from pots import pots
+        from G3 import G3
+        from isdn import isdn
+    再导入phone包：import phone，就可以调用多个模块文件
+
+python输入输出
+    print(a, b, c) 会将a, b, c转化为字符串并打印出来
+    str = raw_input("请输入：") raw_input会读取输入的一行
+    str = input("请输入：") input类似raw_input，但input可以识别输入的表达式
+        请输入：[x*5 for x in range(2,10,2)]
+        [10, 20, 30, 40]
+python文件操作，文件名都是字符串类型
+    open(file_name, 'access_mode', buffering)
+    access_mode选项...：r 只读  w+ 创建读写 a+ 创建追加读写
+    file.write()    file.read() file.close()
+    文件处理则要用到os模块
+    import os
+    os.rename(file_name, file_name)
+    os.remove(file_name)
+    os.mkdirs(newdir)
+    os.rmdir(dirname)
+    os.path.exits(path)
+
+python异常处理：
+    异常是一个事件，在程序执行过程发生
+    异常指程序无法正常处理的事件：
+        IOError 输入输出操作失败
+        OSError 操作系统错误
+        ...
+    需要用专门的语句进行捕获，否则程序会终止执行
+    try/exceppt语句
+        try:
+        <语句>        #运行的代码
+        except <名字1>：
+        <语句>        #try部份引发'名字1'异常，则执行
+        except <名字2>，<数据>:
+        <语句>        #若引发了'名字2'异常，获得附加的数据
+        else:
+        <语句>        #若没有异常发生，则执行此句
+    此外，用户可以编写代码自定义异常

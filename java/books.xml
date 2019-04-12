@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+<book id="001">
+    <title>Harry Potter</title>
+    <author>J K. Rowling</author>
+    <price>$50.2</price>
+</book>
+<book id="002">
+    <title>Learning XML</title>
+    <author>Erik T. Ray</author>
+    <price>$90</price>
+</book>
+</books>

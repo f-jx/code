@@ -1,0 +1,274 @@
+<!-- <!DOCTYPE html> -->
+<!-- 本文档是网站首页
+	实现数据库的浏览，查询，插入和更新功能
+	关联的php文档有：OperateDataResult.php;
+	作者：jason
+	CreateDate：20190406
+	LastDate: 20190609
+ -->
+<html>
+
+<head>
+	<title>My Website</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name='description' content='This website provides ？？？'>
+	<meta name='author' content='jason'>
+	<!-- <meta http-equiv="refresh" content='300'> -->
+
+	<!-- 设置body，div，header，table，footer的样式 -->
+	<style>
+		body {
+			background-color: gray;
+		}
+
+		div {
+			max-width: 1200px;
+			margin-left: auto;
+			margin-right: auto;
+			background-color: white;
+		}
+
+		header {
+			background-color: #6ACBC9;
+			text-align: center;
+		}
+
+		table {
+			max-width: 800px;
+			min-width: 800px;
+			text-align: center;
+			table-layout: fixed;
+		}
+
+		footer {
+			background-color: #6ACBC9;
+			color: white;
+			clear: both;
+			text-align: center;
+			padding: 5px;
+		}
+	</style>
+</head>
+
+<body>
+	<div>
+		<header>
+			<h1><b>Welcome to Jason's Website</b></h1>
+			<p style="text-align:right"><i>This website provides GeneName, ProteinName, Sequence and Expression Fold Change of 1809 Entrys with regard to apoptosis.</i></p>
+			<!-- 在标题下插入分割水平线 -->
+		</header>
+		<hr>
+		<!-- 链接到OperateDataResult.php,实现数据的插入和更新;增添新表的功能会在之后添加上去 -->
+		<form action="OperateDataResult.php" enctype="multipart/form-data" method="post" target=OperateDataResult>
+			<table border='1' align="center">
+				<caption style="font-size: 0.6cm;"><b><i>Operate Data</i></b></caption>
+				<tr>
+					<td width="25%">
+						<font color=red>*</font>TableName:
+					</td>
+					<td>
+						<input style="width: 390px" type="text" name="tablename"
+							value="Please input tablename: apoptosis or expression">
+						<input type="radio" name="operation" value="browse" checked>BrowseData
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="radio" name="operation" value="create">CreateTable
+					</td>
+					<td>
+						<input style="width: 500px" type="text" name="columntext"
+							value="Please input column name and datatype: A int, B char, ...X">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="radio" name="operation" value="insert">InsertData
+					</td>
+					<td>
+						<input style="width: 500px" type="text" name="inserttext"
+							value="Please input insert content: 'a', 'b', ...'x'">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="radio" name="operation" value="search">Search/Update<br>
+						<input type="radio" name="operation" value="delete">Delete
+					</td>
+					<td>
+						<input style="width: 500px" type="text" name="attr_condition"
+							value="Please input search/update condition: Entry='A0A024QYU9'">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="radio" name="operation" value="update">UpdateData
+					</td>
+					<td>
+						<input style="width: 500px" type="text" name="attr_updatetext"
+							value="Please input update column: B='b'">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="radio" name="operation" value="blast">BlastSearch
+					</td>
+					<td>
+						<textarea type="text" name="blastsequence" rows="6" style="width: 500px">
+>tr|B4DTY2|B4DTY2_HUMAN Apoptosis regulatory protein Siva OS=Homo sapiens OX=9606 GN=SIVA1 PE=1 SV=1
+MPKRSCPFADVAPLQLKVRVSQRELSRGVCAERYSQEVFEKTKRLLFLGAQAYLDHVWDEGCAVVHLPESPKPGPTGAPRAARGQMLIGPDGRLIRSLGQASEADPSGVASIACSSCVRAVDGKAVCGQCERALCGQCVRTCWGCGSVACTLCGLVE</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="submit" name='submit' value='Submit'>
+					</td>
+					<td>
+						<input type="reset" />
+					</td>
+				</tr>
+			</table>
+		</form>
+		<br>
+		<form action="Plot.php" method="post" target=Plot>
+			<table border='1' align="center">
+				<caption style="font-size: 0.6cm;"><b><i>Show Differential Expression Graph</i></b></caption>
+				<tr>
+					<td width="25%">
+						<input type="radio" name="show" value="entry" checked>Search by Entry:
+					</td>
+					<td>
+						<input style="width: 500px" type="text" name="entry"
+							value="Please input Entry which you whant to show">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="radio" name="show" value="blast">Search by Blast:
+					</td>
+					<td>
+						<textarea type="text" name="blastsequence" rows="6" style="width: 500px">
+>tr|B4DTY2|B4DTY2_HUMAN Apoptosis regulatory protein Siva OS=Homo sapiens OX=9606 GN=SIVA1 PE=1 SV=1
+MPKRSCPFADVAPLQLKVRVSQRELSRGVCAERYSQEVFEKTKRLLFLGAQAYLDHVWDEGCAVVHLPESPKPGPTGAPRAARGQMLIGPDGRLIRSLGQASEADPSGVASIACSSCVRAVDGKAVCGQCERALCGQCVRTCWGCGSVACTLCGLVE</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="submit" name='submit' value='Submit'>
+					</td>
+					<td>
+						<input type="reset" />
+					</td>
+				</tr>
+			</table>
+		</form>
+		<br>
+		<hr>
+
+		<!-- 如何做的本次作业内容 -->
+		<div style="max-width:800px;margin-left:auto;margin-right:auto;">
+			<h2><b>How did I do my homework?</b></h2>
+			<ol>
+				<li>
+					<h3>Local Software preparation.</h3>
+				</li>
+				<ul>
+					<li>Linux, Xampp, ncbi-blast, <br>fastqc, bowtie2, stringtie, samtools, hisat2, <br>R, R tools
+						"Bioconductor" library "ballgown" ..., php library "jpgraph", </li>
+				</ul>
+				<li>
+					<h3>Search data sources.</h3>
+				</li>
+				<li>
+					<h3>Download <a href="apoptosis.xlsx">apoptosis.xlsx</a> and <a
+							href="apoptosis.fasta">apoptosis.fasta</a> from <a
+							href="https://www.uniprot.org/uniprot/?query=apoptosis&fil=organism%3A%22Homo+sapiens+%28Human%29+%5B9606%5D%22&sort=score#customize-columns">uniprot.</a>
+					</h3>
+				</li>
+				<li>
+					<h3>Transform apoptosis.xlsx to <a href="apoptosis.txt">apoptosis.txt.</a></h3>
+				</li>
+				<li>
+					<h3>Design my database and load sequence data.</h3>
+				</li>
+				<ul>
+					<li>CREATE table apoptosis ( <br>Entry varchar(10), GeneNames varchar(10), <br>EntryName
+						varchar(15),
+						ProteinName text, <br>Length int(10), Sequence text, Annotation text, <br>primary key(Entry) );
+					</li>
+					<li>load data local infile 'apoptosis.txt' into table apoptosis;</li>
+					<li>CREATE table expression ( <br>Entry varchar(10),<br>fc float,<br>primary key(Entry));</li>
+					<li>由于实际分析数据过大，因此fc值暂用随机数生成：UPDATE expression SET fc = rand()*500;</li>
+				</ul>
+				<li>
+					<h3>Design index.html.</h3>
+				</li>
+				<ul>
+					<li>Design the <i><b>Operate Data</b></i> table action link to <b>OperateDataResult.php</b></li>
+					<ul>
+						<li>Brose Data</li>
+						<li>CreateTable </li>
+						<li>InsertData </li>
+						<li>Search/Update/Delete Data </li>
+						<li>BlastSearch </li>
+					</ul>
+					<li>Design the <i><b>Show Differential Expression Graph</b></i> table action link to <b>Plot.php</b></li>
+					<ul>
+						<li>Search by Entry</li>
+						<li>Search by Blast</li>
+					</ul>
+				</ul>
+				<li>
+					<h3>Design "OperateDataResult.php", source code <a href="OperateDataResult.txt">OperateDataResult.txt</a>.</h3>
+				</li>
+				<ul>
+					<li>implement functions for the <i><b>Operate Data</b></i> table by background SQL statement.</li>
+					<ul>
+						<li>Brose Data: $sql = "SELECT * FROM $tablename"</li>
+						<li>Create Data: $sql = "CREATE TABLE $tablename ($columntext)"</li>
+						<li>Insert Data: $sql = "INSERT INTO $tablename VALUES ($inserttext)"</li>
+						<li>Search Data: $sql = "SELECT * FROM $tablename WHERE $attr_condition"</li>
+						<li>DeleteData: $sql= "DELETE FROM $tablename WHERE $attr_condition"</li>
+						<li>UpdateData: $sql = "UPDATE $tablename SET $attr_updatetext WHERE $attr_condition"</li>
+					</ul>
+					<li>implement BlastSearch function</li>
+					<ul>
+						<li>make blastdb: makeblastdb -in apoptosis.fa -dbtype prot -out apoptosisdb/apoptosisdb</li>
+						<li>save sequence to .fa file: file_put_contents("blastsequence.fa", "$blastsequence")</li>
+						<li>show blast result: passthru('blastp ...')</li>
+					</ul>
+				</ul>
+				<li>
+					<h3>Design "Plot.php", source code <a href="Plot.txt">Plot.txt</a>.</h3>
+				</li>
+				<ul>
+					<li>Search by Entry: 将输入内容赋值给变量$entry</li>
+					<li>Search by Blast:
+						<br>后台执行blastp并输出seq_id: exec("blastp -query ... -outfmt '7 sseqid'")
+						<br>后台执行sed命令提取entry字符串: 
+						<br>  提取第6行内容：sed -n '6 p'
+						<br>  提取"| |"符号之间的内容：sed 's/.*|\(.*\)|.*/\1/g'
+						<br>赋值：$entry = exec("blastp ... | sed -n '6 p' | sed 's/.*|\(.*\)|.*/\\1/g'")
+					</li>
+					<li>do SQL query: $sql = "SELECT * FROM expression WHERE Entry='$entry'"</li>
+					<li>define $fc = $row["fc"]</li>
+					<li>generate graph by php library "jpgraph"</li>
+				</ul>
+				<li>
+					<h3>Local test.</h3>
+				</li>
+				<li>
+					<h3>Deploy to the server and test.</h3>
+				</li>
+				<li>
+					<h3><a href="assay.html">My assay</a></h3>
+				</li>
+			</ol>
+		</div>
+		<footer>
+			By jason 20190406
+		</footer>
+	</div>
+</body>
+
+</html>

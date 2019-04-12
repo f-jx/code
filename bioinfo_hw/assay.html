@@ -1,0 +1,1358 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 5.2.7.2 (Linux)"/>
+	<meta name="author" content="王大鹿"/>
+	<meta name="created" content="2019-06-09T15:45:00"/>
+	<meta name="changed" content="2019-06-10T05:51:31.863338219"/>
+	<meta name="AppVersion" content="16.0000"/>
+	<meta name="DocSecurity" content="0"/>
+	<meta name="HyperlinksChanged" content="false"/>
+	<meta name="KSOProductBuildVer" content="2052-11.1.0.8696"/>
+	<meta name="LinksUpToDate" content="false"/>
+	<meta name="ScaleCrop" content="false"/>
+	<meta name="ShareDoc" content="false"/>
+	<style type="text/css">
+		@page { margin-left: 1.91cm; margin-right: 1.91cm; margin-top: 2.54cm; margin-bottom: 2.54cm }
+		p { margin-bottom: 0.25cm; direction: ltr; color: #00000a; line-height: 120%; text-align: left; orphans: 2; widows: 2 }
+		p.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: en-US }
+		p.cjk { font-family: "Noto Sans CJK SC Regular"; font-size: 12pt; so-language: zh-CN }
+		p.ctl { font-family: "Noto Sans Devanagari"; font-size: 12pt; so-language: hi-IN }
+		a:link { color: #333333; text-decoration: none }
+		code.western { font-family: "Liberation Mono", serif }
+		code.cjk { font-family: "Nimbus Mono L" }
+		code.ctl { font-family: "Liberation Mono" }
+	</style>
+</head>
+<body lang="zh-CN" text="#00000a" link="#333333" dir="ltr">
+<p class="cjk" align="center" style="margin-bottom: 0cm; line-height: 100%"><a name="__DdeLink__1338_585494895"></a>
+<font face="宋体"><font size="4" style="font-size: 16pt">人类</font></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="4" style="font-size: 16pt">X</font></font></span></font><font face="宋体"><font size="4" style="font-size: 16pt">染色体基因表达的生物信息学分析实验</font></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体"><b>摘要</b></font></p>
+<p class="cjk" style="text-indent: 0.85cm; margin-bottom: 0cm; line-height: 100%">
+<font face="宋体">人类</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">X</font></span></font><font face="宋体">染色体是一个相对基因丰富的染色体，本实验对人类</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">X</font></span></font><font face="宋体">染色体基因进行生物信息学的分析。对人类</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">X</font></span></font><font face="宋体">染色体基因样本进行差异表达分析，发现在不同地区不同性别之间人类</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">X</font></span></font><font face="宋体">染色体的基因表达差异并不大，但其转录本阶段却十分不同，很有可能和性别有关，但最后基因表达仍没有太大差异，应该是在翻译过程中不同性别的机制也有所不同；对人类</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">X</font></span></font><font face="宋体">染色体基因样本进行聚类分析和</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">PCA</font></span></font><font face="宋体">分析，发现同一地区男性</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">X</font></span></font><font face="宋体">染色体基因表达差异不大，但是女性的样本差异却比较大，这有可能是男性</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">X</font></span></font><font face="宋体">染色体只来源于母亲，而女性的</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">X</font></span></font><font face="宋体">染色体即来源于父亲也来源于母亲的缘故，并且其中一条</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">X</font></span></font><font face="宋体">染色体失活可能造成了更多的变异。</font></p>
+<p class="cjk" style="text-indent: 0.85cm; margin-bottom: 0cm; line-height: 100%">
+<br/>
+
+</p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体"><b>介绍</b></font></p>
+<p class="cjk" style="text-indent: 0.85cm; margin-bottom: 0cm; line-height: 100%">
+<font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">X</font></span></font><font face="宋体">染色体是</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">XY</font></span></font><font face="宋体">型性别决定生物染色体组中的一种特殊的性染色体，人类</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">X</font></span></font><font face="宋体">染色体碱基覆盖达</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">151Mb</font></span></font><font face="宋体">，占整个基因组的</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">5%</font></span></font><font face="宋体">。对一般人类来说，女性的一对性染色体是两条大小，形态相似的</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">X</font></span></font><font face="宋体">染色体，男性则</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">X</font></span></font><font face="宋体">、</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">Y</font></span></font><font face="宋体">染色体各有一条。本次实验数据来源于</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">2016</font></span></font><font face="宋体">年发表在</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">Nature
+Protocols</font></span></font><font face="宋体">上的《</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">Transcript-level
+expression analysis of RNA-seq experiments with HISAT, StringTie and
+Ballgown</font></span></font><font face="宋体">》，从</font><font color="#2f2f2f"><span style="background: #ffffff"><font face="宋体">英格兰岛和约鲁巴住民的</font></span></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">12</font></span></font><font face="宋体">个</font><font face="Liberation Serif, serif"><span lang="en-US"><font color="#2f2f2f"><font face="宋体, serif"><span style="background: #ffffff">X</font></span></font><font face="宋体">号染色体</font></span></font><font face="宋体">样本中选取</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">8</font></span></font><font face="宋体">个样本来进行本次生物信息学分析。</font></p>
+<p style="text-indent: 0.85cm; margin-bottom: 0cm; line-height: 100%">
+<font face="宋体">差异表达分析通常作为根据基因表达矩阵进行生物信息学分析的第一步，有助于我们观察基因在不同样本中的表达差异，从而研究差异表达基因的生物学意义。本次实验是比较两个变量（性别、地区）影响下的人类</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">X</font></span></font><font face="宋体">染色体基因表达差异，通过一定的统计学方法，过滤低丰度基因，从中识别出与变量条件相关的特异性差异表达基因，作图，然后进一步分析这些特异性基因。</font></p>
+<p style="text-indent: 0.85cm; margin-bottom: 0cm; line-height: 100%">
+<font face="宋体">聚类分析用于判断差异基因在不同实验条件下的表达模式，将表达模式相同或相近的基因聚集成类，进而识别基因功能，同类基因可能具有相似的功能。对不同条件下多个基因的表达进行聚类分析可以帮助快速的选择共表达基因。正确的聚类分析，不但有助于推断基因的功能，还可以有效的发现基因之间存在的关系，距离度量是聚类方法的核心。这里的距离度量，是指用来衡量两个基因的表达模式之间的相似程度。本实验对人类</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">X</font></span></font><font face="宋体">染色体差异表达基因进行聚类分析，用欧式距离</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">(Euclidean
+distance )</font></span></font><font face="宋体">评估样本间关系</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">(</font></span></font><font face="宋体">即总体相似度</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">)</font></span></font><font face="宋体">，用热图展示样品表达模式及样品间关系。</font></p>
+<p class="cjk" style="text-indent: 0.85cm; margin-bottom: 0cm; line-height: 100%">
+<font face="宋体">主成分分析 </font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">(
+Princ ipal Component Analysis </font></span></font><font face="宋体">，
+</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">PCA
+)
+</font></span></font><font face="宋体">是一种掌握事物主要矛盾的统计分析方法，它可以从多元事物中解析出主要影响因素，揭示事物的本质，简化复杂的问题。</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">PCA</font></span></font><font face="宋体">分析帮助我们确定影响人类</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">X</font></span></font><font face="宋体">性染色体基因差异表达的关键变量，进一步解释基因表达模式，并能利用散点图实现多维数据可视化。</font></p>
+<p class="cjk" style="text-indent: 0.85cm; margin-bottom: 0cm; line-height: 100%">
+<br/>
+
+</p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体"><b>实验数据来源</b></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体">本次实验数据来源：上次韩老师做差异表达分析的</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">X</font></span></font><font face="宋体">号染色体相关文件</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体">基因注释文件：</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">chrX.gtf</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体">基因序列文件：</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">chrX.fa</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体">已经建好的索引文件夹：</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">indexes</font></span></font><font face="宋体">（</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">chrX_tran.1.ht2
+ chrX_tran.3.ht2  chrX_tran.5.ht2  chrX_tran.7.ht2  chrX_tran.2.ht2 
+chrX_tran.4.ht2  chrX_tran.6.ht2  chrX_tran.8.ht2</font></span></font><font face="宋体">）</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体">样本文件夹：</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">samples</font></span></font><font face="宋体">（</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188*.fastq.gz
+...</font></span></font><font face="宋体">）</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体">本次从</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">12</font></span></font><font face="宋体">个样本中选取</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">8</font></span></font><font face="宋体">个尝试课程所学的差异表达分析，聚类分析及</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">PCA</font></span></font><font face="宋体">主成分分析。</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">8</font></span></font><font face="宋体">个</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">samples</font></span></font><font face="宋体">：</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">geuvadis_phenodata1.csv</font></span></font></p>
+<table width="422" cellpadding="10" cellspacing="0">
+	<col width="128">
+	<col width="99">
+	<col width="133">
+	<tr valign="top">
+		<td width="128" height="10" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ids</font></span></font></p>
+		</td>
+		<td width="99" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">sex</font></span></font></p>
+		</td>
+		<td width="133" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">population</font></span></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="128" height="11" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188044</font></span></font></p>
+		</td>
+		<td width="99" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">male</font></span></font></p>
+		</td>
+		<td width="133" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">YRI</font></span></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="128" height="11" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188104</font></span></font></p>
+		</td>
+		<td width="99" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">male</font></span></font></p>
+		</td>
+		<td width="133" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">YRI</font></span></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="128" height="11" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188234</font></span></font></p>
+		</td>
+		<td width="99" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">female</font></span></font></p>
+		</td>
+		<td width="133" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">YRI</font></span></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="128" height="11" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188337</font></span></font></p>
+		</td>
+		<td width="99" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">female</font></span></font></p>
+		</td>
+		<td width="133" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">GBR</font></span></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="128" height="11" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188383</font></span></font></p>
+		</td>
+		<td width="99" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">male</font></span></font></p>
+		</td>
+		<td width="133" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">GBR</font></span></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="128" height="11" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188401</font></span></font></p>
+		</td>
+		<td width="99" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">male</font></span></font></p>
+		</td>
+		<td width="133" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">GBR</font></span></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="128" height="11" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188428</font></span></font></p>
+		</td>
+		<td width="99" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">female</font></span></font></p>
+		</td>
+		<td width="133" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">GBR</font></span></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="128" height="10" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR204916</font></span></font></p>
+		</td>
+		<td width="99" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">female</font></span></font></p>
+		</td>
+		<td width="133" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">YRI</font></span></font></p>
+		</td>
+	</tr>
+</table>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体"><b>实验方法步骤</b></font></p>
+<ol>
+	<li/>
+<p style="margin-bottom: 0cm; line-height: 100%"><font face="宋体">差异表达分析：</font></p>
+</ol>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">1.hisat2
+alignment:</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">for
+i in {188044,188104,188234,188337,188383,188401,188428,204916}; do</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">hisat2
+-p 8 -x chrX_data/indexes/chrX_tran -1
+chrX_data/samples/ERR${i}_chrX_1.fastq.gz -2
+chrX_data/samples/ERR${i}_chrX_2.fastq.gz -S ERR${i}_chrX.sam</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">done</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">2.samtools
+sort:</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">for
+i in {188044,188104,188234,188337,188383,188401,188428,204916}; do</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">samtools
+sort -@ 8 -o ERR${i}_chrX.bam ERR${i}_chrX.sam</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">done</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">3.stringtie
+</font></span></font><font face="宋体">计算表达量，生成</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">gtf</font></span></font><font face="宋体">文件</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">for
+i in {188044,188104,188234,188337,188383,188401,188428,204916}; do</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">stringtie
+ERR${i}_chrX.bam -p 8 -G chrX_data/genes/chrX.gtf -l ERR${i} -o
+ERR${i}_chrX.gtf</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">done</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">4.stringtie
+merge</font></span></font><font face="宋体">，合并</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">stringtie
+--merge -p 8 -G chrX_data/genes/chrX.gtf -o stringtie_merged.gtf
+chrX_data/mergelist.txt</font></span></font></p>
+<p class="cjk" style="text-indent: 1.25cm; margin-bottom: 0cm; line-height: 100%">
+<font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">mergelist.txt</font></span></font><font face="宋体">内容：</font></p>
+<p class="cjk" style="text-indent: 1.25cm; margin-bottom: 0cm; line-height: 100%">
+<font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188044_chrX.gtf</font></span></font></p>
+<p class="cjk" style="text-indent: 1.25cm; margin-bottom: 0cm; line-height: 100%">
+<font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188104_chrX.gtf</font></span></font></p>
+<p class="cjk" style="text-indent: 1.25cm; margin-bottom: 0cm; line-height: 100%">
+<font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188234_chrX.gtf</font></span></font></p>
+<p class="cjk" style="text-indent: 1.25cm; margin-bottom: 0cm; line-height: 100%">
+<font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188337_chrX.gtf</font></span></font></p>
+<p class="cjk" style="text-indent: 1.25cm; margin-bottom: 0cm; line-height: 100%">
+<font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188383_chrX.gtf</font></span></font></p>
+<p class="cjk" style="text-indent: 1.25cm; margin-bottom: 0cm; line-height: 100%">
+<font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188401_chrX.gtf</font></span></font></p>
+<p class="cjk" style="text-indent: 1.25cm; margin-bottom: 0cm; line-height: 100%">
+<font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188428_chrX.gtf</font></span></font></p>
+<p class="cjk" style="text-indent: 1.25cm; margin-bottom: 0cm; line-height: 100%">
+<font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR204916_chrX.gtf</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">5.</font></span></font><font face="宋体">用</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">stringtie</font></span></font><font face="宋体">生成</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ballgown</font></span></font><font face="宋体">文件夹</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">for
+i in {188044,188104,188234,188337,188383,188401,188428,204916}; do</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">stringtie
+ERR${i}_chrX.bam -p 8 -G stringtie_merged.gtf -o
+ballgown/ERR${i}/ERR${i}_chrX.gtf -e -B</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">done</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">6.R</font></span></font><font face="宋体">语言处理：</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">R</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	library(ballgown)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	library(RSkittleBrewer)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	library(genefilter)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	library(dplyr)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	library(devtools)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#
+</font></span></font><font face="宋体">读取实验设计的</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">csv</font></span></font><font face="宋体">文件</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	pheno_data
+= read.csv(&quot;geuvadis_phenodata1.csv&quot;)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#
+</font></span></font><font face="宋体">读取</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ballgown</font></span></font><font face="宋体">文件</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	bg_chrX
+= ballgown(dataDir = &quot;ballgown&quot;, samplePattern = &quot;ERR&quot;,
+pData=pheno_data)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#
+</font></span></font><font face="宋体">过滤低丰度基因</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	bg_chrX_filt
+= subset(bg_chrX,&quot;rowVars(texpr(bg_chrX)) &gt;1&quot;,genomesubset=TRUE)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#
+</font></span></font><font face="宋体">组间有差异的转录本及基因</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	results_transcripts
+=
+stattest(bg_chrX_filt,feature=&quot;transcript&quot;,covariate=&quot;sex&quot;,adjustvars
+=c(&quot;population&quot;), getFC=TRUE, meas=&quot;FPKM&quot;)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	results_genes
+= stattest(bg_chrX_filt,feature=&quot;gene&quot;,covariate=&quot;sex&quot;,adjustvars
+=c(&quot;population&quot;), getFC=TRUE, meas=&quot;FPKM&quot;)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#
+</font></span></font><font face="宋体">添加基因名和</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">id</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	results_transcripts
+=data.frame(geneNames=ballgown::geneNames(bg_chrX_filt),geneIDs=ballgown::geneIDs(bg_chrX_filt),
+results_transcripts)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#
+</font></span></font><font face="宋体">按</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">P</font></span></font><font face="宋体">值排序</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	results_transcripts
+= arrange(results_transcripts,pval)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	results_genes
+= arrange(results_genes,pval)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#
+</font></span></font><font face="宋体">把结果写入</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">csv</font></span></font><font face="宋体">文件中</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	write.csv(results_transcripts,
+&quot;chrX_transcript_results.csv&quot;,row.names=FALSE)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	write.csv(results_genes,
+&quot;chrX_gene_results.csv&quot;,row.names=FALSE)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#
+</font></span></font><font face="宋体">筛选</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">q</font></span></font><font face="宋体">值小于</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">0.05</font></span></font><font face="宋体">的结果</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	subset(results_transcripts,results_transcripts$qval&lt;0.05)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	subset(results_genes,results_genes$qval&lt;0.05)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#</font></span></font><font face="宋体">做图</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	tropical=
+c('darkorange', 'dodgerblue','hotpink', 'limegreen', 'yellow')</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	palette(tropical)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	fpkm
+= texpr(bg_chrX,meas=&quot;FPKM&quot;)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	fpkm
+= log2(fpkm+1)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	boxplot(fpkm,col=as.numeric(pheno_data$sex),las=2,ylab='log2(FPKM+1)')</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	ballgown::transcriptNames(bg_chrX)[12]</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	ballgown::geneNames(bg_chrX)[12]</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	plot(fpkm[12,]
+~ pheno_data$sex,
+border=c(1,2),main=paste(ballgown::geneNames(bg_chrX)[12],' :
+',ballgown::transcriptNames(bg_chrX)[12]),pch=19,
+xlab=&quot;Sex&quot;,ylab='log2(FPKM+1)')</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	points(fpkm[12,]
+~ jitter(as.numeric(pheno_data$sex)),col=as.numeric(pheno_data$sex))</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	plotTranscripts(ballgown::geneIDs(bg_chrX)[1729],
+bg_chrX, main=c('Gene XIST in sample ERR188234'),
+sample=c('ERR188234'))</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	plotMeans('MSTRG.56',
+bg_chrX_filt,groupvar=&quot;sex&quot;,legend=FALSE)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体"><font size="2" style="font-size: 11pt">二、聚类分析及</font></font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">PCA</font></font></span></font><font face="宋体"><font size="2" style="font-size: 11pt">主成分分析</font></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体"><font size="2" style="font-size: 11pt">所需数据文件：</font></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	</font></span></font><font face="宋体">实验设计</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">csv</font></span></font><font face="宋体">表格：</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">geuvadis_phenodata1.csv</font></span></font><font face="宋体">，右侧加一栏</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">id</font></span></font><font face="宋体">，与</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ids</font></span></font><font face="宋体">相同</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">geuvadis_phenodata2.csv</font></span></font><font face="宋体">。</font></p>
+<table width="505" cellpadding="10" cellspacing="0">
+	<col width="109">
+	<col width="84">
+	<col width="122">
+	<col width="109">
+	<tr valign="top">
+		<td width="109" height="10" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ids</font></span></font></p>
+		</td>
+		<td width="84" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">sex</font></span></font></p>
+		</td>
+		<td width="122" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">population</font></span></font></p>
+		</td>
+		<td width="109" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">id</font></span></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="109" height="11" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188044</font></span></font></p>
+		</td>
+		<td width="84" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">male</font></span></font></p>
+		</td>
+		<td width="122" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">YRI</font></span></font></p>
+		</td>
+		<td width="109" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188044</font></span></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="109" height="11" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188104</font></span></font></p>
+		</td>
+		<td width="84" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">male</font></span></font></p>
+		</td>
+		<td width="122" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">YRI</font></span></font></p>
+		</td>
+		<td width="109" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188104</font></span></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="109" height="11" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188234</font></span></font></p>
+		</td>
+		<td width="84" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">female</font></span></font></p>
+		</td>
+		<td width="122" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">YRI</font></span></font></p>
+		</td>
+		<td width="109" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188234</font></span></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="109" height="11" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188337</font></span></font></p>
+		</td>
+		<td width="84" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">female</font></span></font></p>
+		</td>
+		<td width="122" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">GBR</font></span></font></p>
+		</td>
+		<td width="109" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188337</font></span></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="109" height="11" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188383</font></span></font></p>
+		</td>
+		<td width="84" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">male</font></span></font></p>
+		</td>
+		<td width="122" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">GBR</font></span></font></p>
+		</td>
+		<td width="109" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188383</font></span></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="109" height="11" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188401</font></span></font></p>
+		</td>
+		<td width="84" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">male</font></span></font></p>
+		</td>
+		<td width="122" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">GBR</font></span></font></p>
+		</td>
+		<td width="109" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188401</font></span></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="109" height="11" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188428</font></span></font></p>
+		</td>
+		<td width="84" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">female</font></span></font></p>
+		</td>
+		<td width="122" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">GBR</font></span></font></p>
+		</td>
+		<td width="109" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188428</font></span></font></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="109" height="10" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR204916</font></span></font></p>
+		</td>
+		<td width="84" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">female</font></span></font></p>
+		</td>
+		<td width="122" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">YRI</font></span></font></p>
+		</td>
+		<td width="109" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+			<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR204916</font></span></font></p>
+		</td>
+	</tr>
+</table>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	</font></span></font><font face="宋体">基因注释文件：</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">chrX.gtf</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	</font></span></font><font face="宋体">差异表达分析中</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">hisat2+samtools</font></span></font><font face="宋体">所得</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">8</font></span></font><font face="宋体">个</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">bam</font></span></font><font face="宋体">文件</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体">进入</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">R</font></span></font><font face="宋体">程序：</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">R</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	library(&quot;airway&quot;)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	vignette(&quot;airway&quot;)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	library(&quot;Rsamtools&quot;)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	library(&quot;GenomicFeatures&quot;)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	library(&quot;DESeq2&quot;)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	library(&quot;pheatmap&quot;)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	library(&quot;RColorBrewer&quot;)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#
+</font></span></font><font face="宋体">读取</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">csv</font></span></font><font face="宋体">文件和</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">8</font></span></font><font face="宋体">个</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">bam</font></span></font><font face="宋体">文件</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	csvfile
+&lt;- file.path(&quot;geuvadis_phenodata2.csv&quot;)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	(sampleTable
+&lt;- read.csv(csvfile,row.names=1))</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#
+</font></span></font><font face="宋体">新加入的一栏</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">id</font></span></font><font face="宋体">用于这里：</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">sampleTable$id</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	filenames
+&lt;- file.path(paste0(sampleTable$id, &quot;_chrX.bam&quot;))</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	bamfiles
+&lt;- BamFileList(filenames, yieldSize=2000000)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#
+</font></span></font><font face="宋体">读取</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">gtf</font></span></font><font face="宋体">文件，构建</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">TxDb
+object</font></span></font><font face="宋体">对象</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	gtffile
+&lt;- file.path(&quot;chrX.gtf&quot;)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	(txdb
+&lt;- makeTxDbFromGFF(gtffile, format=&quot;gtf&quot;,
+circ_seqs=character()))</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	(ebg
+&lt;- exonsBy(txdb, by=&quot;gene&quot;))</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	library(&quot;GenomicAlignments&quot;)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	library(&quot;BiocParallel&quot;)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#
+</font></span></font><font face="宋体">设置多核运行</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	register(SerialParam())</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	se
+&lt;- summarizeOverlaps(features=ebg,
+reads=bamfiles,mode=&quot;Union&quot;,singleEnd=FALSE,ignore.strand=TRUE,fragments=TRUE
+)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#
+</font></span></font><font face="宋体">将样本实验设计信息传递给</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">colData(se)</font></span></font><font face="宋体">，方便后续分组及寻找差异基因</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	(colData(se)
+&lt;- DataFrame(sampleTable))</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#
+</font></span></font><font face="宋体">将</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">male</font></span></font><font face="宋体">定义为</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">sex</font></span></font><font face="宋体">因素的第一水平，随后的</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">foldchange
+</font></span></font><font face="宋体">将采用</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">female/male.</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	se$sex
+&lt;- relevel(se$sex, &quot;male&quot;)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#
+</font></span></font><font face="宋体">控制</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">population</font></span></font><font face="宋体">，研究</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">sex</font></span></font><font face="宋体">的影响。</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	dds
+&lt;- DESeqDataSet(se, design = ~ population + sex)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	countdata
+&lt;- assay(se)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	coldata
+&lt;- colData(se)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	(ddsMat
+&lt;- DESeqDataSetFromMatrix(countData = countdata,colData =
+coldata,design = ~ population + sex))</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#
+</font></span></font><font face="宋体">筛选</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	dds
+&lt;- dds[ rowSums(counts(dds)) &gt; 1, ]</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#
+The rlog transformation</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	rld
+&lt;- rlog(dds, blind=FALSE)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	head(assay(rld),
+3)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	par(
+mfrow = c( 1, 2 ) )</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	dds
+&lt;- estimateSizeFactors(dds)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#
+</font></span></font><font face="宋体">比较普通的</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">log2(</font></span></font><font face="宋体">左</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">)</font></span></font><font face="宋体">及</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">rlog2(</font></span></font><font face="宋体">右</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">)</font></span></font><font face="宋体">的作图结果</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	plot(log2(counts(dds,
+normalized=TRUE)[,1:2] + 1),pch=16, cex=0.3)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	plot(assay(rld)[,1:2],pch=16,
+cex=0.3)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#
+</font></span></font><font face="宋体">用欧式距离</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">(Euclidean
+distance )</font></span></font><font face="宋体">评估样本间关系</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">(</font></span></font><font face="宋体">即总体相似度</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">)</font></span></font><font face="宋体">，采用</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">rlog-transformed
+data</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	(sampleDists
+&lt;- dist( t( assay(rld) ) ))	</font></span></font></p>
+<center>
+	<table width="893" cellpadding="10" cellspacing="0">
+		<col width="91">
+		<col width="92">
+		<col width="92">
+		<col width="92">
+		<col width="92">
+		<col width="92">
+		<col width="92">
+		<col width="90">
+		<tr valign="top">
+			<td width="91" height="7" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><br/>
+
+				</p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">ERR188044</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">ERR188104</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">ERR188234</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">ERR188337</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">ERR188383</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">ERR188401</font></font></span></font></p>
+			</td>
+			<td width="90" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">ERR188428</font></font></span></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="91" height="8" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">ERR188104</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">5.228711</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><br/>
+
+				</p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><br/>
+
+				</p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><br/>
+
+				</p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><br/>
+
+				</p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><br/>
+
+				</p>
+			</td>
+			<td width="90" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><br/>
+
+				</p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="91" height="8" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">ERR188234</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">7.288198</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">7.668854</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><br/>
+
+				</p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><br/>
+
+				</p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><br/>
+
+				</p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><br/>
+
+				</p>
+			</td>
+			<td width="90" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><br/>
+
+				</p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="91" height="8" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">ERR188337</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">8.875514</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">8.726699</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">7.031264</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><br/>
+
+				</p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><br/>
+
+				</p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><br/>
+
+				</p>
+			</td>
+			<td width="90" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><br/>
+
+				</p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="91" height="8" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">ERR188383</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">6.102277</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">5.86267</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">7.685866</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">8.276389</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><br/>
+
+				</p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><br/>
+
+				</p>
+			</td>
+			<td width="90" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><br/>
+
+				</p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="91" height="8" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">ERR188401</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">5.873334</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">5.772187</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">8.663745</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">8.17113</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">5.527673</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><br/>
+
+				</p>
+			</td>
+			<td width="90" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><br/>
+
+				</p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="91" height="8" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">ERR188428</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">7.719631</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">7.319028</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">5.65862</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">5.631482</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">7.169712</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">7.625595</font></font></span></font></p>
+			</td>
+			<td width="90" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><br/>
+
+				</p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="91" height="7" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">ERR204916</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">8.138408</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">7.941104</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">6.424259</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">6.354825</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">7.143844</font></font></span></font></p>
+			</td>
+			<td width="92" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">8.012608</font></font></span></font></p>
+			</td>
+			<td width="90" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 10pt">5.826696</font></font></span></font></p>
+			</td>
+		</tr>
+	</table>
+</center>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#
+</font></span></font><font face="宋体">用热图展示样品间关系</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	sampleDistMatrix
+&lt;- as.matrix( sampleDists )</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	rownames(sampleDistMatrix)
+&lt;- paste( rld$dex, rld$cell, sep=&quot;-&quot; )</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	colnames(sampleDistMatrix)
+&lt;- NULL</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	colors
+&lt;- colorRampPalette( rev(brewer.pal(9, &quot;Blues&quot;)) )(255)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	pheatmap(sampleDistMatrix,clustering_distance_rows=sampleDists,clustering_distance_cols=sampleDists,col=colors)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#
+PCA</font></span></font><font face="宋体">分析：</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#
+</font></span></font><font face="宋体">第一种方法：用</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">plotPCA</font></span></font><font face="宋体">做</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	plotPCA(rld,
+intgroup = c(&quot;sex&quot;, &quot;population&quot;))</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	(data
+&lt;- plotPCA(rld, intgroup = c(&quot;sex&quot;, &quot;population&quot;),
+returnData=TRUE))</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<center>
+	<table width="862" cellpadding="10" cellspacing="0">
+		<col width="101">
+		<col width="102">
+		<col width="116">
+		<col width="116">
+		<col width="68">
+		<col width="116">
+		<col width="101">
+		<tr valign="top">
+			<td width="101" height="9" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><br/>
+
+				</p>
+			</td>
+			<td width="102" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">PC1</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">PC2</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">group</font></font></span></font></p>
+			</td>
+			<td width="68" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">sex</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">population</font></font></span></font></p>
+			</td>
+			<td width="101" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">name</font></font></span></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="101" height="10" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188044</font></font></span></font></p>
+			</td>
+			<td width="102" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">-3.254229</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">1.8608593</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">male:YRI</font></font></span></font></p>
+			</td>
+			<td width="68" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">male</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">YRI</font></font></span></font></p>
+			</td>
+			<td width="101" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188044</font></font></span></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="101" height="10" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188104</font></font></span></font></p>
+			</td>
+			<td width="102" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">-3.164121</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">0.8863557</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">male:YRI</font></font></span></font></p>
+			</td>
+			<td width="68" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">male</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">YRI</font></font></span></font></p>
+			</td>
+			<td width="101" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188104</font></font></span></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="101" height="10" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188234</font></font></span></font></p>
+			</td>
+			<td width="102" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">2.51583</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">3.6167524</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">female:YRI</font></font></span></font></p>
+			</td>
+			<td width="68" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">female</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">YRI</font></font></span></font></p>
+			</td>
+			<td width="101" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188234</font></font></span></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="101" height="10" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188337</font></font></span></font></p>
+			</td>
+			<td width="102" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">3.921531</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">-2.422433</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">female:GBR</font></font></span></font></p>
+			</td>
+			<td width="68" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">female</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">GBR</font></font></span></font></p>
+			</td>
+			<td width="101" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188337</font></font></span></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="101" height="10" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188383</font></font></span></font></p>
+			</td>
+			<td width="102" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">-2.342253</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">-0.9677665</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">male:GBR</font></font></span></font></p>
+			</td>
+			<td width="68" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">male</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">GBR</font></font></span></font></p>
+			</td>
+			<td width="101" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188383</font></font></span></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="101" height="10" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188401</font></font></span></font></p>
+			</td>
+			<td width="102" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">-3.212352</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">-2.5520669</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">male:GBR</font></font></span></font></p>
+			</td>
+			<td width="68" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">male</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">GBR</font></font></span></font></p>
+			</td>
+			<td width="101" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188401</font></font></span></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="101" height="10" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188428</font></font></span></font></p>
+			</td>
+			<td width="102" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">2.710774</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">0.1135457</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">female:GBR</font></font></span></font></p>
+			</td>
+			<td width="68" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">female</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">GBR</font></font></span></font></p>
+			</td>
+			<td width="101" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188428</font></font></span></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="101" height="9" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR204916</font></font></span></font></p>
+			</td>
+			<td width="102" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">2.82482</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">-0.5352467</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">female:YRI</font></font></span></font></p>
+			</td>
+			<td width="68" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">female</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">YRI</font></font></span></font></p>
+			</td>
+			<td width="101" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR204916</font></font></span></font></p>
+			</td>
+		</tr>
+	</table>
+</center>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#
+</font></span></font><font face="宋体">第二种方法：用</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ggplot</font></span></font><font face="宋体">做</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	(data
+&lt;- plotPCA(rld, intgroup = c( &quot;sex&quot;, &quot;population&quot;),
+returnData=TRUE))</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<center>
+	<table width="862" cellpadding="10" cellspacing="0">
+		<col width="101">
+		<col width="102">
+		<col width="116">
+		<col width="116">
+		<col width="68">
+		<col width="116">
+		<col width="101">
+		<tr valign="top">
+			<td width="101" height="9" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><br/>
+
+				</p>
+			</td>
+			<td width="102" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">PC1</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">PC2</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">group</font></font></span></font></p>
+			</td>
+			<td width="68" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">sex</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">population</font></font></span></font></p>
+			</td>
+			<td width="101" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">name</font></font></span></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="101" height="10" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188044</font></font></span></font></p>
+			</td>
+			<td width="102" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">-3.254229</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">1.8608593</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">male:YRI</font></font></span></font></p>
+			</td>
+			<td width="68" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">male</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">YRI</font></font></span></font></p>
+			</td>
+			<td width="101" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188044</font></font></span></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="101" height="10" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188104</font></font></span></font></p>
+			</td>
+			<td width="102" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">-3.164121</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">0.8863557</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">male:YRI</font></font></span></font></p>
+			</td>
+			<td width="68" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">male</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">YRI</font></font></span></font></p>
+			</td>
+			<td width="101" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188104</font></font></span></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="101" height="10" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188234</font></font></span></font></p>
+			</td>
+			<td width="102" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">2.515830</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">3.6167524</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">female:YRI</font></font></span></font></p>
+			</td>
+			<td width="68" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">female</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">YRI</font></font></span></font></p>
+			</td>
+			<td width="101" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188234</font></font></span></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="101" height="10" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188337</font></font></span></font></p>
+			</td>
+			<td width="102" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">3.921531</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">-2.422433</font></font><font face="宋体, serif"><font size="2" style="font-size: 11pt">0</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">female:GBR</font></font></span></font></p>
+			</td>
+			<td width="68" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">female</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">GBR</font></font></span></font></p>
+			</td>
+			<td width="101" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188337</font></font></span></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="101" height="10" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188383</font></font></span></font></p>
+			</td>
+			<td width="102" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">-2.342253</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">-0.9677665</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">male:GBR</font></font></span></font></p>
+			</td>
+			<td width="68" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">male</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">GBR</font></font></span></font></p>
+			</td>
+			<td width="101" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188383</font></font></span></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="101" height="10" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188401</font></font></span></font></p>
+			</td>
+			<td width="102" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">-3.212352</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">-2.5520669</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">male:GBR</font></font></span></font></p>
+			</td>
+			<td width="68" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">male</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">GBR</font></font></span></font></p>
+			</td>
+			<td width="101" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188401</font></font></span></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="101" height="10" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188428</font></font></span></font></p>
+			</td>
+			<td width="102" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">2.710774</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">0.1135457</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">female:GBR</font></font></span></font></p>
+			</td>
+			<td width="68" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">female</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">GBR</font></font></span></font></p>
+			</td>
+			<td width="101" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR188428</font></font></span></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="101" height="9" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR204916</font></font></span></font></p>
+			</td>
+			<td width="102" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">2.824820</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">-0.5352467</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">female:YRI</font></font></span></font></p>
+			</td>
+			<td width="68" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">female</font></font></span></font></p>
+			</td>
+			<td width="116" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">YRI</font></font></span></font></p>
+			</td>
+			<td width="101" bgcolor="#ffffff" style="background: #ffffff" style="border: 1px solid #00000a; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.17cm; padding-right: 0.19cm">
+				<p class="cjk"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif"><font size="2" style="font-size: 11pt">ERR204916</font></font></span></font></p>
+			</td>
+		</tr>
+	</table>
+</center>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	percentVar
+&lt;- round(100 * attr(data, &quot;percentVar&quot;))</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	library(&quot;ggplot2&quot;)
+ </font></span></font>
+</p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	ggplot(data,
+aes(PC1, PC2, color=sex, shape=population)) + geom_point(size=3) +
+xlab(paste0(&quot;PC1: &quot;,percentVar[1],&quot;% variance&quot;))
++ ylab(paste0(&quot;PC2: &quot;,percentVar[2],&quot;% variance&quot;))</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">#
+Differential expression analysis</font></span></font><font face="宋体">差异表达分析</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	dds
+&lt;- DESeq(dds)</font></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><code class="western"><font face="宋体, serif">#</font></code></span></font><code class="cjk"><font face="宋体">产生</font></code><font face="Liberation Serif, serif"><span lang="en-US"><code class="western"><font face="宋体, serif">log2
+fold change </font></code></span></font><code class="cjk"><font face="宋体">及</font></code><font face="Liberation Serif, serif"><span lang="en-US"><code class="western"><font face="宋体, serif">p</font></code></span></font><code class="cjk"><font face="宋体">值</font></code></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	</font><code class="western"><font face="宋体, serif">(res
+&lt;-</font></code><font face="宋体, serif"> </font><code class="western"><font face="宋体, serif">results(dds))</font></code></span></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><code class="western"><font face="宋体, serif">#</font></code></span></font><code class="cjk"><font face="宋体">输出</font></code><font face="Liberation Serif, serif"><span lang="en-US"><code class="western"><font face="宋体, serif">csv</font></code></span></font><code class="cjk"><font face="宋体">文件</font></code></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">	write.csv(res,
+file = 'res.csv') </font></span></font>
+</p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体"><b>结果与讨论</b></font></p>
+<ol>
+	<li/>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体">差异表达分析</font></p>
+</ol>
+<p style="margin-left: 0.74cm; margin-bottom: 0cm; line-height: 100%">
+<font face="宋体">作图结果：</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><img src="assay_html_9939978da4989f44.png" name="图片 5" align="bottom" width="976" height="1019" border="0"/>
+</p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体">将所有数值</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">p</font></span></font><font face="宋体">值按照从小到大排列，在得到的数据中筛选出</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">q</font></span></font><font face="宋体">值小于</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">0.05</font></span></font><font face="宋体">的</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">transcripts</font></span></font><font face="宋体">和</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">genes</font></span></font><font face="宋体">，这样剩下的为性别之间表达有明显差异的基因。其中橘色为</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">female</font></span></font><font face="宋体">，蓝色为</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">male</font></span></font><font face="宋体">。结合第一张图可以看出，在同一地区，不同性别的基因的表达差异性并不大，且不同区域基因表达差异性相差也很小。</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体">第二张图是就单个转录本观测样品中的分布状况，很明显</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">male</font></span></font><font face="宋体">性别</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">FPKM</font></span></font><font face="宋体">值数值更大，波动也更大，因此其差异性显著。</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体">第三张图表示</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">ERR188234</font></span></font><font face="宋体">基因的转录本状况，基本出现在</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">78060200-78060300</font></span></font><font face="宋体">以及</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">78062800-78063300</font></span></font><font face="宋体">这两个片段之间。</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体">第四张图展示了不同性别之间的基因表达情况，结合第三张图一起看，可以发现，不同性别的基因表达基本一致，</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">7050000</font></span></font><font face="宋体">左右区域有显著的基因表达状况，而在</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">7080000</font></span></font><font face="宋体">，</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">7105000</font></span></font><font face="宋体">以及</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">7150000</font></span></font><font face="宋体">区域有较显著的基因表达状况，</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">7080000</font></span></font><font face="宋体">以及</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">7120000</font></span></font><font face="宋体">区域有弱基因表达装备。</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体">总的说来不同地区不同性别之间的基因表达并没有多大的差异性，但是其转录本阶段却存在着很大的不同，图</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">3</font></span></font><font face="宋体">中转录本在两个区域显著，很有可能和不同性别有关，但最后基因表达仍然相同，应该在翻译过程中，不同性别下，机制也有所不同。当然很大一部分可能是样本太少，数据缺乏普遍性。</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<ol start="2">
+	<li/>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体">聚类分析</font></p>
+</ol>
+<p style="margin-left: 0.74cm; margin-bottom: 0cm; line-height: 100%">
+<font face="宋体">作图结果：</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><img src="assay_html_ca496f26b09833f3.png" name="图片 10" align="bottom" width="975" height="1040" border="0"/>
+</p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体">图</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">1</font></span></font><font face="宋体">：这个图对比了同一地区两个男性之间</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">X</font></span></font><font face="宋体">染色体之间的差异，左边是一个对照，右边结果显示两个样本的</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">X</font></span></font><font face="宋体">染色体差异不大。</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><a name="_GoBack"></a>
+<font face="宋体">图</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">2</font></span></font><font face="宋体">：这是两个地区居民</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">X</font></span></font><font face="宋体">染色体的热图，每一行代表一个基因，每一列代表一个样本，图上每一格代表一个数值，按色键（右边）给每个数值分配颜色，图外的树状结构代表样本之间相似度聚落关系，第</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">1</font></span></font><font face="宋体">和第</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">2</font></span></font><font face="宋体">个样本相似，第</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">7</font></span></font><font face="宋体">和第</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">8</font></span></font><font face="宋体">相似，越往右越不相似，这两组具有有显著差异，因为其所属的大类具有显著差异。</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体">图</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">3</font></span></font><font face="宋体">：这是两个地区居民</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">X</font></span></font><font face="宋体">染色体的散点图，每个点代表一个样本，如果两个样本距离较远，则说明两个样本遗传背景差异越大，理想情况下，遗传背景相似的个体会在图中聚在一起，图中男性同地区的两个样本差异不大，但是女性的样本差异却很大，这有可能是男性</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">X</font></span></font><font face="宋体">染色体只来源于母亲，而女性的</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">X</font></span></font><font face="宋体">染色体即来源于父亲也来源于母亲的缘故，并且其中一条</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">X</font></span></font><font face="宋体">染色体失活可能造成了更多的变异。</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体">图</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">4</font></span></font><font face="宋体">：从图</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">4</font></span></font><font face="宋体">中我们也能发现相同地区男性样本基因表达差异不大，但是女性样本基因差异却很大，结果与图</font><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">4</font></span></font><font face="宋体">类似。</font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="宋体"><b>参考文献</b></font></p>
+<p class="cjk" style="margin-bottom: 0cm; line-height: 100%"><font face="Liberation Serif, serif"><span lang="en-US"><font face="宋体, serif">Pertea
+M , Kim D , Pertea G M , et al. Transcript-level expression analysis
+of RNA-seq experiments with HISAT, StringTie and Ballgown[J]. Nature
+Protocols, 2016, 11(9):1650-1667.</font></span></font></p>
+</body>
+</html>
